@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Business Jacket - Luxury Goods</title>
+    <meta name="description" content="Tampil elegan dan profesional dengan Italian Business Jacket. Desain modern, potongan rapi, dan bahan berkualitas terbaik.">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    
+    <!-- Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#000000',
+                        charcoal: '#36454f',
+                        gold: '#d4af37',
+                        champagne: '#f7e7ce',
+                        white: '#ffffff',
+                    },
+                    fontFamily: {
+                        heading: ['Cormorant Garamond', 'serif'],
+                        body: ['Open Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-charcoal: #36454f;
+            --color-gold: #d4af37;
+            --color-champagne: #f7e7ce;
+            --color-white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--color-charcoal);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(54,69,79,0.7) 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #f7e7ce 100%);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .social-proof-popup {
+            animation: slideInRight 0.5s ease forwards;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        .carousel {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-item {
+                width: 50%;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .carousel-item {
+                width: 33.3333%;
+            }
+        }
+        
+        /* OrderOnline Form Customization */
+        .ooef {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .orderonline-embed-form {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(247,231,206,0.95) 100%) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            padding: 2rem !important;
+            border-radius: 12px !important;
+        }
+        
+        /* Size Chart Styling */
+        .size-chart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .size-chart-table th, .size-chart-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: center;
+        }
+        
+        .size-chart-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+        }
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white antialiased">
+    <!-- Social Proof Popup Container -->
+    <div id="socialProofContainer" class="fixed top-4 right-4 z-50 w-80 max-w-full hidden"></div>
+    
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://cdn.orderonline.id/uploads/images_9962011758215052768.png" alt="Italian Business Jacket" class="w-full h-full object-cover">
+            <div class="absolute inset-0 gradient-bg"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 font-heading">Italian Business Jacket</h1>
+            <p class="text-xl md:text-2xl mb-8 font-body">Tampil elegan dan profesional dengan desain modern, potongan rapi, serta bahan berkualitas yang nyaman dipakai di segala kesempatan</p>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
+                <div class="text-3xl font-bold text-gold">Rp 348.000</div>
+                <div class="text-xl line-through opacity-75">Rp 415.000</div>
+            </div>
+            
+            <button onclick="scrollToOrderForm()" class="bg-gold hover:bg-opacity-90 text-black font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                Pesan Sekarang
+            </button>
+            
+            <div class="mt-8 flex flex-wrap justify-center gap-6">
+                <div class="flex items-center gap-2">
+                    <i data-feather="truck" class="text-gold"></i>
+                    <span>Pengiriman Cepat</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-feather="shield" class="text-gold"></i>
+                    <span>Garansi 30 Hari</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-feather="refresh-cw" class="text-gold"></i>
+                    <span>Return Mudah</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <a href="#features" class="text-white">
+                <i data-feather="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 bg-champagne">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-heading" data-aos="fade-up">Mengapa Memilih Italian Business Jacket?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 glass-effect rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="scissors" class="text-white w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Potongan Rapi</h3>
+                    <p class="text-charcoal">Desain modern dengan potongan yang pas di badan untuk penampilan profesional</p>
+                </div>
+                
+                <div class="text-center p-6 glass-effect rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="feather" class="text-white w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Bahan Berkualitas</h3>
+                    <p class="text-charcoal">Terbuat dari bahan premium yang nyaman dipakai sepanjang hari</p>
+                </div>
+                
+                <div class="text-center p-6 glass-effect rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="check-circle" class="text-white w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multifungsi</h3>
+                    <p class="text-charcoal">Cocok untuk berbagai kesempatan formal maupun semi-formal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Gallery -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-heading" data-aos="fade-up">Galeri Produk</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="overflow-hidden rounded-lg cursor-pointer" data-aos="zoom-in" onclick="openLightbox('https://cdn.orderonline.id/uploads/images_5181441758215053098.png')">
+                    <img src="https://cdn.orderonline.id/uploads/images_5181441758215053098.png" alt="Italian Business Jacket" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg cursor-pointer" data-aos="zoom-in" data-aos-delay="100" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0603/1281/3668/files/16922587685937.jpg?v=1692262507')">
+                    <img src="https://cdn.shopify.com/s/files/1/0603/1281/3668/files/16922587685937.jpg?v=1692262507" alt="Italian Business Jacket" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg cursor-pointer" data-aos="zoom-in" data-aos-delay="200" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0603/1281/3668/files/16922587935522.jpg?v=1692262512')">
+                    <img src="https://cdn.shopify.com/s/files/1/0603/1281/3668/files/16922587935522.jpg?v=1692262512" alt="Italian Business Jacket" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg cursor-pointer" data-aos="zoom-in" data-aos-delay="300" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0603/1281/3668/files/16922587934672.jpg?v=1692262517')">
+                    <img src="https://cdn.shopify.com/s/files/1/0603/1281/3668/files/16922587934672.jpg?v=1692262517" alt="Italian Business Jacket" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg cursor-pointer" data-aos="zoom-in" data-aos-delay="400" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0603/1281/3668/files/16922588538032.jpg?v=1692262527')">
+                    <img src="https://cdn.shopify.com/s/files/1/0603/1281/3668/files/16922588538032.jpg?v=1692262527" alt="Italian Business Jacket" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Size Chart -->
+    <section class="py-20 px-4 bg-champagne">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 font-heading" data-aos="fade-up">Panduan Ukuran</h2>
+            <p class="text-center mb-12 text-charcoal">Pilih ukuran yang tepat untuk kenyamanan maksimal</p>
+            
+            <div class="overflow-x-auto" data-aos="fade-up">
+                <table class="size-chart-table">
+                    <thead>
+                        <tr>
+                            <th>Ukuran</th>
+                            <th>Panjang Badan</th>
+                            <th>Lebar Dada</th>
+                            <th>Panjang Tangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>S</td><td>85cm</td><td>94cm</td><td>60cm</td></tr>
+                        <tr><td>M</td><td>85cm</td><td>96cm</td><td>62cm</td></tr>
+                        <tr><td>L</td><td>90cm</td><td>102cm</td><td>62cm</td></tr>
+                        <tr><td>XL</td><td>90cm</td><td>106cm</td><td>63cm</td></tr>
+                        <tr><td>2XL</td><td>90cm</td><td>110cm</td><td>64cm</td></tr>
+                        <tr><td>3XL</td><td>98cm</td><td>128cm</td><td>65cm</td></tr>
+                        <tr><td>4XL</td><td>100cm</td><td>130cm</td><td>66cm</td></tr>
+                        <tr><td>5XL</td><td>102cm</td><td>132cm</td><td>67cm</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-sm text-charcoal">Tips: Untuk hasil terbaik, ukur jaket yang sudah Anda miliki dan bandingkan dengan tabel di atas</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-heading" data-aos="fade-up">Testimoni Pelanggan</h2>
+            
+            <div class="carousel relative" data-aos="fade-up">
+                <div class="carousel-inner" id="testimonialCarousel">
+                    <!-- Testimonial items will be populated by JavaScript -->
+                </div>
+                
+                <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100" onclick="prevTestimonial()">
+                    <i data-feather="chevron-left"></i>
+                </button>
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100" onclick="nextTestimonial()">
+                    <i data-feather="chevron-right"></i>
+                </button>
+                
+                <div class="flex justify-center mt-6 space-x-2" id="testimonialDots">
+                    <!-- Dots will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Order Form Section -->
+    <section id="order-form" class="py-20 px-4 bg-gradient-to-b from-champagne to-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-heading" data-aos="fade-up">Pesan Italian Business Jacket Anda</h2>
+            <p class="text-center mb-12 text-red-700">Stok hanya tersisa 13 pcs
+</p>
+            
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden" data-aos="zoom-in">
+                <!-- OrderOnline Embed Code - v8.0.4 -->
+                <div class="ooef">
+                    <form class="orderonline-embed-form" data-username="vera" data-product-slug="italian-business-jacket" data-product-id="68cc375a11487f8bd403f89d" id="oo-embed-form-italian-business-jacket-8813" data-origin="orderonline">
+                        <div class="ooef-loader"><style>.ooef-loader{visibility: hidden;opacity: 0;position: absolute;left: 0;right: 0;top: 0;bottom: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;animation: ooLoadingIn 10s ease;-webkit-animation: ooLoadingIn 10s ease;animation-fill-mode: forwards;overflow: hidden}@keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}@-webkit-keyframes ooLoadingIn{0%{visibility: hidden;opacity: 0}20%{visibility: visible;opacity: 0}100%{visibility: visible;opacity: 1}}.ooef-loader>div,.ooef-loader>div:after{border-radius: 50%;width: 2.5rem;height: 2.5rem}.ooef-loader>div{font-size: 10px;position: relative;text-indent: -9999em;border: .25rem solid #f5f5f5;border-left: .25rem solid #55c4cf;-webkit-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-animation: ooLoading 1.1s infinite linear;animation: ooLoading 1.1s infinite linear}.ooef-loader.error>div{border-left: .25rem solid #ff4500;animation-duration: 5s}@-webkit-keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}@keyframes ooLoading{0%{-webkit-transform: rotate(0);transform: rotate(0)}100%{-webkit-transform: rotate(360deg);transform: rotate(360deg)}}</style><div aria-live="polite" role="status"><div>Loading...</div></div></div>
+                    </form>
+                </div>
+                <script>
+                    if (typeof xLogError != 'function') {
+                        var xLogError = function (error) {
+                            var req = new XMLHttpRequest();
+                            var payload = JSON.stringify({ url: document.location.href, line: error.line, stack: error.stack });
+                            var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                            req.open('POST', 'https://api.orderonline.id/log', true);
+                            req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                            req.send(params);
+                        };
+                    }
+                    try {
+                        if (typeof xEmbedScript != 'function') {
+                            var xEmbedScript = function () {
+                                !function(w, d, e, v, id, t, s) {
+                                    if (d.getElementById(id)) return;
+                                    t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                    s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                                }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                            };
+                        }
+                        if (typeof xEmbedInit != 'function') {
+                            var xEmbedInit = function (w, n) {
+                                if (w.ooe) return;
+                                n = w.ooe = function() { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+                                if (!w._ooe) w._ooe = n;
+                                n.push = n;n.loaded = !0;n.version = '8.0.4';n.queue = [];
+                            };
+                        }
+                        xEmbedInit(window);
+                        ooe('setup', 'redirect', 'https://vera.orderonline.id');
+                        ooe('init', '5f1a7807a9bf807d6c63d963', '68cc375a11487f8bd403f89d', '68cc375a11487f8bd403f89e', 'oo-embed-form-italian-business-jacket-8813', {"mode":"page","action":"Klik untuk pemesanan","title":"Form Pemesanan","triggerPixel":true,"triggerGtm":true});
+                        if (!window.jQuery) {
+                            !function(w, d, e, v, id, t, s) {
+                                if (d.getElementById(id)) return;
+                                t = d.createElement(e);t.async = !0;t.src = v;t.id = id;
+                                t.addEventListener('load', xEmbedScript);
+                                s = d.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+                            }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+                        } else {
+                            xEmbedScript();
+                        }
+                    } catch (e) {
+                        xLogError(e);
+                        throw e;
+                    }
+                </script>
+                <!-- End OrderOnline Embed Code -->
+            </div>
+            
+        </div>
+    </section>
+    
+    
+    <!-- Sticky CTA Button -->
+    <div class="sticky-cta" id="stickyCta">
+        <div class="bg-white shadow-lg p-4 flex items-center justify-between">
+            <div>
+                <p class="font-bold">Italian Business Jacket</p>
+                <p class="text-gold font-bold">Rp 348.000 <span class="text-gray-500 line-through text-sm">Rp 415.000</span></p>
+            </div>
+            <button onclick="scrollToOrderForm()" class="bg-gold hover:bg-opacity-90 text-black font-bold py-2 px-6 rounded-lg">
+                Pesan Sekarang
+            </button>
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+    
+    <!-- Scripts -->
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            feather.replace();
+            
+            // Initialize testimonial carousel
+            initTestimonialCarousel();
+            
+            // Initialize social proof notifications
+            initSocialProof();
+            
+            // Initialize sticky CTA
+            initStickyCTA();
+        });
+        
+        // Testimonial data
+        const testimonials = [
+            {
+                name: "ahmadhasanudin975",
+                rating: 5,
+                avatar: "https://i.pinimg.com/1200x/84/0b/03/840b03d91e099d03726f2db5b369aee7.jpg",
+                media: "https://down-id.img.susercontent.com/file/id-11134103-23010-o9xf8w5bgtlv2e.webp",
+                text: "Rekomen banget pokonya sdup seller nya jga ramah👍"
+            },
+            {
+                name: "kendy_leo",
+                rating: 5,
+                avatar: "https://i.pinimg.com/736x/4c/7c/75/4c7c7553c2943d4588a0087dd3a45932.jpg",
+                media: "https://down-id.img.susercontent.com/file/id-11134103-7rasd-m5gwwff7qtard6.webp",
+                text: "Bagus banget, bahannya sepadan dengan harga dan untuk ukuran XL buat tinggi 165cm itu Pas banget."
+            },
+            {
+                name: "bagas9937",
+                rating: 5,
+                avatar: "https://i.pinimg.com/1200x/97/04/ce/9704ce65669e2387e66bb2844b4f6560.jpg",
+                media: "https://down-id.img.susercontent.com/file/8efc75346e81ad4bbd9b2de27d82ee23.webp",
+                text: "Alhamdulillah sudah sampai, Terimakasih ya barangnya bagus banget"
+            },
+            {
+                name: "abdeenamikaze",
+                rating: 5,
+                avatar: "https://i.pinimg.com/1200x/ab/f3/e7/abf3e77e66b9c95229185319f334a881.jpg",
+                media: "https://down-id.img.susercontent.com/file/id-11134103-7rask-m0u4okd6hrrg20.webp",
+                text: "Monggo yang mau beli, dijamin toko ini gabakal mengecewakan. Semoga kebaikan dibalas kebaikan untuk kemajuan toko ini😎🔥"
+            },
+            {
+                name: "fikkrilemwas",
+                rating: 5,
+                avatar: "https://i.pinimg.com/736x/19/9a/d1/199ad1381113de67e138d6f3c08715a2.jpg",
+                media: "https://down-id.img.susercontent.com/file/db7f029c61326d158208ba25bdab6013.webp",
+                text: "Alhamdulillah paket sdh diterima, bagus sesuai pesanan. Sukses selalu untuk tokonya,,Terimakasih 🙏"
+            },
+            {
+                name: "muhammadhalil260",
+                rating: 5,
+                avatar: "https://i.pinimg.com/1200x/12/53/8a/12538a447b92fd43b9ad1d4098db52d8.jpg",
+                media: "https://down-id.img.susercontent.com/file/id-11134103-22090-a8owyjt372hvdf.webp",
+                text: "Okeee bagus barang sesuai dengan pesanan dan pengiriman lumayan cepat terimakasih"
+            }
+        ];
+        
+        // Testimonial carousel
+        let currentTestimonialIndex = 0;
+        let testimonialInterval;
+        
+        function initTestimonialCarousel() {
+            const carousel = document.getElementById('testimonialCarousel');
+            const dotsContainer = document.getElementById('testimonialDots');
+            
+            // Calculate items per slide based on screen size
+            let itemsPerSlide = 1;
+            if (window.innerWidth >= 768) itemsPerSlide = 2;
+            if (window.innerWidth >= 1024) itemsPerSlide = 3;
+            
+            // Create testimonial items
+            testimonials.forEach((testimonial, index) => {
+                const item = document.createElement('div');
+                item.className = 'carousel-item p-4';
+                
+                const stars = '⭐'.repeat(testimonial.rating);
+                
+                item.innerHTML = `
+                    <div class="testimonial-card bg-white rounded-lg shadow-md p-6 h-full">
+                        <div class="flex items-center mb-4">
+                            <img src="${testimonial.avatar}" alt="${testimonial.name}" class="w-10 h-10 rounded-full object-cover mr-3">
+                            <div>
+                                <h4 class="font-bold">${testimonial.name}</h4>
+                                <div class="text-yellow-400">${stars}</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">${testimonial.text}</p>
+                        <img src="${testimonial.media}" alt="Testimonial media" class="w-20 h-20 object-cover rounded cursor-pointer" onclick="openLightbox('${testimonial.media}')">
+                    </div>
+                `;
+                
+                carousel.appendChild(item);
+                
+                // Create dot
+                const dot = document.createElement('button');
+                dot.className = 'w-3 h-3 rounded-full bg-gray-300';
+                dot.addEventListener('click', () => goToTestimonial(index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            // Set initial active dot
+            updateDots();
+            
+            // Start auto scroll
+            startTestimonialAutoScroll();
+            
+            // Pause on hover
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(testimonialInterval);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                startTestimonialAutoScroll();
+            });
+        }
+        
+        function startTestimonialAutoScroll() {
+            testimonialInterval = setInterval(() => {
+                nextTestimonial();
+            }, 5000);
+        }
+        
+        function nextTestimonial() {
+            let itemsPerSlide = 1;
+            if (window.innerWidth >= 768) itemsPerSlide = 2;
+            if (window.innerWidth >= 1024) itemsPerSlide = 3;
+            
+            currentTestimonialIndex = (currentTestimonialIndex + itemsPerSlide) % testimonials.length;
+            updateCarousel();
+        }
+        
+        function prevTestimonial() {
+            let itemsPerSlide = 1;
+            if (window.innerWidth >= 768) itemsPerSlide = 2;
+            if (window.innerWidth >= 1024) itemsPerSlide = 3;
+            
+            currentTestimonialIndex = (currentTestimonialIndex - itemsPerSlide + testimonials.length) % testimonials.length;
+            updateCarousel();
+        }
+        
+        function goToTestimonial(index) {
+            currentTestimonialIndex = index;
+            updateCarousel();
+        }
+        
+        function updateCarousel() {
+            const carousel = document.getElementById('testimonialCarousel');
+            let itemsPerSlide = 1;
+            if (window.innerWidth >= 768) itemsPerSlide = 2;
+            if (window.innerWidth >= 1024) itemsPerSlide = 3;
+            
+            const translateX = -currentTestimonialIndex * (100 / itemsPerSlide);
+            carousel.style.transform = `translateX(${translateX}%)`;
+            
+            updateDots();
+        }
+        
+        function updateDots() {
+            const dots = document.querySelectorAll('#testimonialDots button');
+            dots.forEach((dot, index) => {
+                if (index === currentTestimonialIndex) {
+                    dot.classList.add('bg-gold');
+                } else {
+                    dot.classList.remove('bg-gold');
+                }
+            });
+        }
+        
+        // Lightbox functionality
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Social proof notifications
+        const customerNames = ['Vina', 'Dina', 'Kartika', 'Lestari', 'Putri', 'Maya Sari', 'Rani', 'Permata', 'Lestari F'];
+        const customerCities = ['Jakarta', 'Surabaya', 'Bandung', 'Medan', 'Bekasi', 'Tangerang', 'Depok', 'Semarang'];
+        let socialProofInterval;
+        
+        function initSocialProof() {
+            // Show first notification after 3 seconds
+            setTimeout(showSocialProof, 3000);
+            
+            // Set interval for subsequent notifications
+            socialProofInterval = setInterval(showSocialProof, 8000);
+        }
+        
+        function showSocialProof() {
+            const container = document.getElementById('socialProofContainer');
+            const name = customerNames[Math.floor(Math.random() * customerNames.length)];
+            const city = customerCities[Math.floor(Math.random() * customerCities.length)];
+            const minutesAgo = Math.floor(Math.random() * 15) + 1;
+            
+            const popup = document.createElement('div');
+            popup.className = 'social-proof-popup bg-white rounded-lg shadow-lg p-4 mb-4 flex items-center';
+            popup.innerHTML = `
+                <img src="https://cdn.orderonline.id/uploads/images_9962011758215052768.png" alt="${name}" class="w-10 h-10 rounded-full object-cover mr-3">
+                <div>
+                    <p class="font-semibold">${name} dari ${city}</p>
+                    <p class="text-sm text-gray-600">baru saja memesan Italian Business Jacket</p>
+                    <p class="text-xs text-gray-500">${minutesAgo} menit yang lalu</p>
+                </div>
+            `;
+            
+            container.appendChild(popup);
+            container.classList.remove('hidden');
+            
+            // Hover to pause auto-close
+            popup.addEventListener('mouseenter', () => {
+                clearTimeout(autoCloseTimeout);
+            });
+            
+            popup.addEventListener('mouseleave', () => {
+                autoCloseTimeout = setTimeout(() => {
+                    popup.remove();
+                    if (container.children.length === 0) {
+                        container.classList.add('hidden');
+                    }
+                }, 5000);
+            });
+            
+            // Auto close after 5 seconds
+            let autoCloseTimeout = setTimeout(() => {
+                popup.remove();
+                if (container.children.length === 0) {
+                    container.classList.add('hidden');
+                }
+            }, 5000);
+        }
+        
+        // Sticky CTA
+        function initStickyCTA() {
+            const stickyCta = document.getElementById('stickyCta');
+            let lastScrollTop = 0;
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 500) {
+                    if (scrollTop > lastScrollTop) {
+                        // Scrolling down
+                        stickyCta.classList.remove('visible');
+                    } else {
+                        // Scrolling up
+                        stickyCta.classList.add('visible');
+                    }
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        }
+        
+        // Scroll to order form
+        function scrollToOrderForm() {
+            document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // FAQ toggle
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                feather.replace();
+                icon.setAttribute('data-feather', 'minus');
+            } else {
+                content.classList.add('hidden');
+                feather.replace();
+                icon.setAttribute('data-feather', 'plus');
+            }
+            
+            feather.replace();
+        }
+        
+        // Responsive adjustments
+        window.addEventListener('resize', function() {
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
